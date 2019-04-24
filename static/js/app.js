@@ -20,10 +20,11 @@ submit.on("click", function() {
   var inputDate = d3.select("#datetime");
   var inputValue = inputDate.property("value");
   var filteredData = tableData.filter(tableData => tableData.datetime === inputValue);
-  let row = tbody.append('tr');
-  Object.entries(filteredData).forEach(function([key, value]) {
-    let cell = row.append('td');
-    cell.text(value);
-    console.log(key, value);
+  filteredData.forEach(function(newData) {
+    let row = tbody.append('tr');
+    Object.entries(newData).forEach(function([key, value]) {
+      let cell = row.append('td');
+      cell.text(value);
+    });
   });
 });
